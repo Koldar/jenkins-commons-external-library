@@ -1,6 +1,6 @@
 package com.fibonacci.jenkins.commons;
 
-class ScriptUtils {
+class ExternalCommandsUtils {
 
     static void getBatOutput(String output) {
         output = output.trim();
