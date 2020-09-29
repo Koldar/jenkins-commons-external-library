@@ -11,6 +11,7 @@ class StdoutUtils {
             .stream()
             .map { s -> s.trim()}
             .collect()
+            .toList()
     }
 
     static String getSingleLineBatOutput(String output) {
