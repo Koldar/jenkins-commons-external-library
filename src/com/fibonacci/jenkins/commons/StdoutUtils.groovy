@@ -7,11 +7,12 @@ class StdoutUtils {
         def l = output.readLines()
         //the first line is always the command input itself
         l.removeAt(0);
-        return l
-            .stream()
-            .map { s -> s.trim()}
-            .collect()
-            .toList()
+        def result = []
+        for (def i in l) {
+            result.add(i.trim())
+        }
+        echo("getBatOutputis ${result}")
+        return result
     }
 
     static String getSingleLineBatOutput(String output) {
