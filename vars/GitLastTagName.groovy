@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+import com.fibonacci.jenkins.commons.StdoutUtils
+
 def call(String gitExe = "git") {
     def t = bat(
         script: "${gitExe} describe --abbrev=0 HEAD~1",
