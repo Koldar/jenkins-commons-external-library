@@ -4,6 +4,7 @@ import com.fibonacci.jenkins.commons.StdoutUtils
 import java.lang.Iterable
 import java.util.List
 import java.util.ArrayList
+import java.nio.file.Paths
 
 /**
  * generate a changelog file
