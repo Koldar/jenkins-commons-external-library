@@ -46,7 +46,7 @@ def call(String visualStudioProjectFileXml, String newVersion, String releaseTyp
     new XmlNodePrinter(new PrintWriter(new FileWriter(visualStudioProjectFileXml))).print(project)
 
     //ensure the change has been made
-    def versionCheck = getCurrentVersionFromVisualStudioProject(visualStudioProjectFileXml)
+    def versionCheck = fetchVersionFromVisualStudio(visualStudioProjectFileXml)
     echo("When retying to read the project file, we got a version of ${versionCheck}")
     if (versionCheck != newVersion) {
         throw new IllegalArgumentException("version ${newVersion} has not been updated!")
