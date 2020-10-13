@@ -1,3 +1,5 @@
+package com.fibonacci.jenkins.commons;
+
 class AnsiColors {
     static final DEFAULT = '\033[39m';
     static final RED = '\033[31m';
