@@ -1,5 +1,9 @@
 #!/usr/bin/env groovy
 
+def call(final Map data) {
+    call(data.tagName, data.tagDescription, data.remoteUrl, data.gitExe)
+}
+
 def call(String tagName, String tagDescription, String remoteUrl, String gitExe = "git") {
     bat(
         script: "${gitExe} tag -a \"${tagName}\" -m \"${tagDescription}\"",
