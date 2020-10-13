@@ -21,17 +21,18 @@ class AnsiColors {
     static useColorEcho(String message, String color = "default") {
         def xtermColor = "";
         switch (color) {
-            "black": xtermColor = AnsiContants.BLACK;
-            "red": xtermColor = AnsiContants.RED;
-            "yellow": xtermColor = AnsiContants.YELLOW;
-            "green": xtermColor = AnsiContants.GREEN;
-            "blue": xtermColor = AnsiContants.BLUE;
-            "white": xtermColor = AnsiContants.WHITE;
-            "cyan": xtermColor = AnsiContants.CYAN;
-            "magenta": xtermColor = AnsiContants.MAGENTA;
+            case "black": xtermColor = AnsiContants.BLACK;
+            case "red": xtermColor = AnsiContants.RED;
+            case "yellow": xtermColor = AnsiContants.YELLOW;
+            case "green": xtermColor = AnsiContants.GREEN;
+            case "blue": xtermColor = AnsiContants.BLUE;
+            case "white": xtermColor = AnsiContants.WHITE;
+            case "cyan": xtermColor = AnsiContants.CYAN;
+            case "magenta": xtermColor = AnsiContants.MAGENTA;
             default: throw new IllegalArgumentException("Invalid color ${color}")
         }
 
         echo xtermColor + message + AnsiConstants.DEFAULT
+        //echo message
     }
 }
