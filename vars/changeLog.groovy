@@ -2,10 +2,6 @@
 
 import com.fibonacci.jenkins.commons.StdoutUtils
 
-def call(final Map data) {
-    return doWork(data.entries, data.path)
-}
-
 def doWork(String[] entries, String path) {
     def today = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC")) 
 
@@ -20,4 +16,8 @@ def doWork(String[] entries, String path) {
 
     echo("#lines in changeLogContent = ${changeLogContent.size()}")
     writeFile(file: path, text: "${changeLogContent.join('\n')}", encoding: "utf8")
+}
+
+def call(final Map data) {
+    return doWork(data.entries, data.path)
 }
