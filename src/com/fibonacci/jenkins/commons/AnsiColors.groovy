@@ -22,28 +22,28 @@ class AnsiColors {
         def xtermColor = "";
         switch (color) {
             case "black": 
-                xtermColor = AnsiContants.BLACK;
+                xtermColor = AnsiColors.BLACK;
                 break
             case "red": 
-                xtermColor = AnsiContants.RED;
+                xtermColor = AnsiColors.RED;
                 break
             case "yellow": 
-                xtermColor = AnsiContants.YELLOW;
+                xtermColor = AnsiColors.YELLOW;
                 break
             case "green": 
-                xtermColor = AnsiContants.GREEN;
+                xtermColor = AnsiColors.GREEN;
                 break
             case "blue":   
-                xtermColor = AnsiContants.BLUE;
+                xtermColor = AnsiColors.BLUE;
                 break
             case "white": 
-                xtermColor = AnsiContants.WHITE;
+                xtermColor = AnsiColors.WHITE;
                 break
             case "cyan": 
-                xtermColor = AnsiContants.CYAN;
+                xtermColor = AnsiColors.CYAN;
                 break
             case "magenta": 
-                xtermColor = AnsiContants.MAGENTA;
+                xtermColor = AnsiColors.MAGENTA;
                 break
             default: 
                 throw new IllegalArgumentException("Invalid color ${color}")
