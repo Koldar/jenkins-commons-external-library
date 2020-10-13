@@ -3,7 +3,7 @@
 import com.fibonacci.jenkins.commons.StdoutUtils
 
 def call(final Map data) {
-    return call(data.gitExe ?: "git")
+    return call(data.entries, data.path)
 }
 
 def call(String[] entries, String path) {
