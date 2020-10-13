@@ -14,7 +14,7 @@ class StdoutUtils {
         for (def i in l) {
             result.add(i.trim())
         }
-        echo("getBatOutput is ${result}")
+        echo "getBatOutput is ${result}"
         return result
     }
 
