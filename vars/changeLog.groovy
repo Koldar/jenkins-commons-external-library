@@ -2,7 +2,7 @@
 
 import com.fibonacci.jenkins.commons.StdoutUtils
 
-def call(String[] entries, String path) {
+def call(Iterable<String> entries, String path) {
     def today = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC")) 
 
     def changeLogContent = []
