@@ -49,7 +49,7 @@ class AnsiColors {
                 throw new IllegalArgumentException("Invalid color ${color}")
         }
 
-        echo xtermColor + message + AnsiConstants.DEFAULT
+        echo xtermColor + message + AnsiColors.DEFAULT
         //echo message
     }
 }
