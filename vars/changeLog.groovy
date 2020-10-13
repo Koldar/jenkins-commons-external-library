@@ -3,10 +3,10 @@
 import com.fibonacci.jenkins.commons.StdoutUtils
 
 def call(final Map data) {
-    return call(data.entries, data.path)
+    return doWork(data.entries, data.path)
 }
 
-def call(String[] entries, String path) {
+def doWork(String[] entries, String path) {
     def today = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC")) 
 
     def changeLogContent = []
