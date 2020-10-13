@@ -19,3 +19,7 @@ def call(String branchToSet, String remoteUrl, String gitExe = "git") {
         label: "pull"
     )
 }
+bat(
+        script: "${gitExe} status",
+        label: "check if the head has been attached again"
+    )
