@@ -3,5 +3,5 @@
 import com.fibonacci.jenkins.commons.AnsiColors;
 
 def call(String message) {
-    AnsiColors.useColorEcho(message, "green")
+    echo AnsiColors.getColorMessage(message, "green")
 }

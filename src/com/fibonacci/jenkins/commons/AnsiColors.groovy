@@ -20,7 +20,7 @@ class AnsiColors {
     static final WHITE = '\033[97m';
 
 
-    static useColorEcho(String message, String color = "default") {
+    static String getColorMessage(String message, String color = "default") {
         def xtermColor = "";
         switch (color) {
             case "black": 
@@ -51,7 +51,7 @@ class AnsiColors {
                 throw new IllegalArgumentException("Invalid color ${color}")
         }
 
-        echo xtermColor + message + AnsiColors.DEFAULT
+        return xtermColor + message + AnsiColors.DEFAULT
         //echo message
     }
 }
