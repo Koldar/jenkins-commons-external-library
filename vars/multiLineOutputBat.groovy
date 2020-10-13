@@ -2,6 +2,10 @@
 
 import com.fibonacci.jenkins.commons.StdoutUtils;
 
+def call(final Map data) {
+    return call(data.command, data.label)
+}
+
 /**
  * call bat step and automatically convert the output into a sequence of lines
  */
