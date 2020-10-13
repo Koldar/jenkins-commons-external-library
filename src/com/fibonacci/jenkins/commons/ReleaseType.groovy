@@ -53,7 +53,7 @@ enum ReleaseType {
                 return v
             }
         }
-        throw new IllegateArgumentException("Cannot parse ${str} into a ReleaseType")
+        throw new IllegalArgumentException("Cannot parse ${str} into a ReleaseType")
     }
 
 }
