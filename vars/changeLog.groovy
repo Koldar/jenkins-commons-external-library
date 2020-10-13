@@ -14,7 +14,9 @@ def call(String[] entries, String path) {
     changeLogContent.add("This file represents the features, bugfix and so on that have been done from tag ${lastTagName} to tag ${tagName}")
     changeLogContent.add("This file has been generated ${today}")
     changeLogContent.add("")
-    entries.indexed().collect { index, item -> changeLogContent.add(" - ${index}: ${item}") }
+    entries.indexed().collect { 
+        index, item -> changeLogContent.add(" - ${index}: ${item}") 
+    }
 
     echo("#lines in changeLogContent = ${changeLogContent.size()}")
     writeFile(file: path, text: "${changeLogContent.join('\n')}", encoding: "utf8")
