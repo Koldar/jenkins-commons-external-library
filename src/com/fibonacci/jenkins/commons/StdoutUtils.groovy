@@ -2,6 +2,9 @@ package com.fibonacci.jenkins.commons;
 
 class StdoutUtils {
 
+    /**
+     * format the output of an external command generated via bat
+     */
     static String[] getBatOutput(String output) {
         output = output.trim(); //remove trailing lines
         def l = output.readLines()
@@ -11,7 +14,7 @@ class StdoutUtils {
         for (def i in l) {
             result.add(i.trim())
         }
-        echo("getBatOutputis ${result}")
+        echo("getBatOutput is ${result}")
         return result
     }
 
