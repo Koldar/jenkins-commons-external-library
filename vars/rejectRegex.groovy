@@ -5,6 +5,7 @@ import java.lang.Iterable
 import java.util.List
 import java.util.ArrayList
 import java.nio.file.Paths
+import java.util.regex.Pattern
 
 /**
  * generate a changelog file
