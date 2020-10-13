@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 
 import com.fibonacci.jenkins.commons.StdoutUtils
+import java.lang.Iterable
+import java.util.List
+import java.util.ArrayList
 
 /**
  * generate a changelog file
