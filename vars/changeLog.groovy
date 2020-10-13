@@ -27,7 +27,7 @@ def call(Iterable<String> entries, String path, String startTag, String endTag) 
 
     echo("#lines in changeLogContent = ${changeLogContent.size()}")
     writeFile(file: path, text: "${changeLogContent.join('\n')}", encoding: "utf8")
-    blueEcho("CHANGELOG available at ${new File(path).getPath().getAbsolutePath()}")
+    blueEcho("CHANGELOG available at ${new File(path).getAbsolutePath()}")
 }
 
 def call(final Map data) {
