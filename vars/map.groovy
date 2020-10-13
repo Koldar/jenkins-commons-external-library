@@ -18,7 +18,7 @@ def call(Iterable<String> entries, Closure map) {
 
     def result = new ArrayList<String>()
     for (def x : entries) {
-        result.Add(map(x))
+        result.add(map(x))
     }
 
     return result

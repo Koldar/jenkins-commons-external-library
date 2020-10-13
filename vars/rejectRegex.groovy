@@ -28,7 +28,7 @@ def call(Iterable<String> entries, Iterable<String> excludePatterns) {
         }
 
         if (!excluded) {
-            result.Add(x)
+            result.add(x)
         }
     }
 

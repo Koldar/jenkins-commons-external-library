@@ -27,7 +27,7 @@ def call(Iterable<String> entries, Iterable<String> includePatterns) {
         }
 
         if (included) {
-            result.Add(x)
+            result.add(x)
         }
     }
 
