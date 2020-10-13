@@ -1,10 +1,12 @@
 #!/usr/bin/env groovy
 
+import com.fibonacci.jenkins.commons.ReleaseType
+
 def call(final Map data) {
     return call(data.visualStudioProjectFileXml, data.newVersion, data.releaseType)
 }
 
-def call(String visualStudioProjectFileXml, String newVersion, String releaseType) {
+def call(String visualStudioProjectFileXml, String newVersion, ReleaseType releaseType) {
     def file = new File(visualStudioProjectFileXml)
     def project = new XmlParser().parse(file)
     def propertyGroups = project.children().findAll {
@@ -19,22 +21,7 @@ def call(String visualStudioProjectFileXml, String newVersion, String releaseTyp
             versionPrefix.setValue(newVersion)
             echo("New VersionPrefix is ${versionPrefix.text()}")
             //update version suffix
-            def newSuffix = ""
-            switch (releaseType) {
-                case 'alpha-release': 
-                    newSuffix = 'alpha'
-                    break
-                case 'beta-release': 
-                    newSuffix = 'beta'
-                    break
-                case 'release-candidate': 
-                    newSuffix = 'rc'
-                    break
-                case 'release': 
-                    newSuffix = ''
-                    break
-                default: throw new IllegalArgumentException("Invalid argument ${releaseType}")
-            }
+            def newSuffix = releaseType.getSuffix()
             def versionSuffix = propertyGroup.children().find { return it.name().getLocalPart() == "VersionSuffix"}
             echo("Old VersionSuffix is ${versionSuffix.text()}")
             versionSuffix.setValue(newSuffix)
