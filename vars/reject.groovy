@@ -17,9 +17,9 @@ import java.nio.file.Paths
 def call(Iterable<String> entries, Iterable<String> excludePatterns) {
 
     def result = new ArrayList<String>()
-    for (var x : entries) {
-        var excluded = false
-        for (var excludeRegex : excludePatterns) {
+    for (def x : entries) {
+        def excluded = false
+        for (def excludeRegex : excludePatterns) {
             if (Pattern.matches(excludeRegex, x)) {
                 excluded = true
                 break

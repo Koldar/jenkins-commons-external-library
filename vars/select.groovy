@@ -17,9 +17,9 @@ import java.nio.file.Paths
 def call(Iterable<String> entries, Iterable<String> includePatterns) {
 
     def result = new ArrayList<String>()
-    for (var x : entries) {
-        var included = false
-        for (var includeRegex : includePatterns) {
+    for (def x : entries) {
+        def included = false
+        for (def includeRegex : includePatterns) {
             if (Pattern.matches(includeRegex, x)) {
                 included = true
                 break
