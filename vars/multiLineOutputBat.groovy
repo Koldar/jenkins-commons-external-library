@@ -3,15 +3,15 @@
 import com.fibonacci.jenkins.commons.StdoutUtils;
 
 def call(final Map data) {
-    return call(data.command, data.label)
+    return call(data.script, data.label)
 }
 
 /**
  * call bat step and automatically convert the output into a sequence of lines
  */
-def call(String command, String label) {
+def call(String script, String label) {
     def stdout = bat(
-        script: command,
+        script: script,
         label: label,
         returnStdout: true
     )
