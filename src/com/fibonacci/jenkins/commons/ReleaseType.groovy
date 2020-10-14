@@ -7,12 +7,12 @@ enum ReleaseType {
     RELEASE("release", true, "")
 
     private final String parsable
-    private final boolean release
+    private final boolean releaseValue
     private final String suffix
     
 	ReleaseType(String parsable, boolean release, String suffix) {
 		this.parsable = parsable
-        this.release = release
+        this.releaseValue = release
         this.suffix = suffix
 	}
 
@@ -21,11 +21,11 @@ enum ReleaseType {
     }
 
     boolean isRelease() {
-        return this.release
+        return this.releaseValue
     }
 
     boolean isSnapshot() {
-        return !this.release
+        return !this.releaseValue
     }
 
 	String getParsableValue() {
