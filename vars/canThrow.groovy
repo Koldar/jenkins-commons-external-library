@@ -16,7 +16,7 @@ def call(Closure body) {
     try {
         body()
     } catch (Exception e) {
-        redEcho "Erorr has occured ${e.message}"
+        redEcho "Error has occured ${e.message}"
         def w = new StringWriter()
         e.printStackTrace(new PrintWriter(w))
         redEcho "${w}"
