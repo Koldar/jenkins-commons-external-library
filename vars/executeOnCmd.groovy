@@ -30,7 +30,7 @@ def call(String script, List<List<String>> environmentVariables, String label) {
 def call(final Map data) {
     call(
         data.script, 
-        //data.environmentVariables, 
+        data.environmentVariables, 
         data.label
     )
 }
