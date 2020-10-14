@@ -10,7 +10,7 @@ import java.nio.file.Paths
  * scan the iterable and filters out duplicat elements
  *
  */
-def call(String script, Iterable<List<String,String>> environmentVariables, String label) {
+def call(String script, List<List<String,String>> environmentVariables, String label) {
     def actualCmd = ""
     for (List<String,String> v: environmentVariables) {
         echo "Setting ${v[0]} to ${v[1]}"
