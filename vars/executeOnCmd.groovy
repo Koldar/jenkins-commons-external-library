@@ -10,11 +10,12 @@ import java.nio.file.Paths
  * scan the iterable and filters out duplicat elements
  * ["JAVA_HOME", JAVA_HOME]
  */
-def call(String script, String label) {
+def call(String script, List<List<String> environmentVariables, String label) {
     def actualCmd = ""
-    // for (List<String,String> v: environmentVariables) {
-    //     echo "Setting ${v[0]} to ${v[1]}"
-    //     actualCmd = actualCmd + "SET ${v[0]}=${v[1]};"
+    echo "environmentVariables = ${environmentVariables}"
+    // for (List<String> v: environmentVariables) {
+    //     echo "Setting ${v.get(0)} to ${v.get(1)}"
+    //     actualCmd = actualCmd + "SET ${v.get(0)}=${v.get(1)};"
     // }
     actualCmd = actualCmd + script
     echo "Executing ${actualCmd}"
