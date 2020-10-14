@@ -12,10 +12,10 @@ import java.nio.file.Paths
  */
 def call(String script, List<List<String,String>> environmentVariables, String label) {
     def actualCmd = ""
-    for (List<String,String> v: environmentVariables) {
-        echo "Setting ${v[0]} to ${v[1]}"
-        actualCmd = actualCmd + "SET ${v[0]}=${v[1]};"
-    }
+    // for (List<String,String> v: environmentVariables) {
+    //     echo "Setting ${v[0]} to ${v[1]}"
+    //     actualCmd = actualCmd + "SET ${v[0]}=${v[1]};"
+    // }
     actualCmd = actualCmd + script
     echo "Executing ${actualCmd}"
     bat(
