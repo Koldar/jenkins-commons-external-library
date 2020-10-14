@@ -12,8 +12,6 @@ import java.nio.file.Paths
  */
 def call(String script, Iterable<Iterable<String>> environmentVariables, String label) {
     def actualCmd = ""
-    echo "hello!"
-    echo "environmentVariables = ${environmentVariables}"
     for (Iterable<String> v: environmentVariables) {
         def l = v.collect()
         echo "Setting ${v.get(0)} to ${l.get(1)}"
