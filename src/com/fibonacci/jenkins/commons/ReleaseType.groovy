@@ -21,6 +21,7 @@ enum ReleaseType {
     }
 
     boolean isRelease() {
+        //see https://stackoverflow.com/a/50710366/1887602
         return this.releaseValue
     }
 
