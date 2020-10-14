@@ -36,13 +36,13 @@ enum ReleaseType {
     String getTagVersion(String semanticVersion) {
         switch (this) {
         case ReleaseType.ALPHA: 
-            return "v${semver2}-alpha"
+            return "v${semanticVersion}-alpha"
         case ReleaseType.BETA: 
-            return "v${semver2}-beta"
+            return "v${semanticVersion}-beta"
         case ReleaseType.RELEASE_CANDIDATE: 
-            return "v${semver2}-rc"
+            return "v${semanticVersion}-rc"
         case ReleaseType.RELEASE: 
-            return "v${semver2}"
+            return "v${semanticVersion}"
         default: 
             throw new IllegalArgumentException("Invalid argument ${releaseType}")
     }
