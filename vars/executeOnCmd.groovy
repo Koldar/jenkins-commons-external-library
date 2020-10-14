@@ -10,7 +10,7 @@ import java.nio.file.Paths
  * scan the iterable and filters out duplicat elements
  * ["JAVA_HOME", JAVA_HOME]
  */
-def call(String script, List<List<String>> environmentVariables, String label) {
+def call(String script, Iterable<List<String>> environmentVariables, String label) {
     def actualCmd = ""
     echo "hello!"
     echo "environmentVariables = ${environmentVariables}"
