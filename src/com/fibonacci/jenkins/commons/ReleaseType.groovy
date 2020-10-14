@@ -50,6 +50,7 @@ enum ReleaseType {
     static ReleaseType parseStr(String str) {
         for(def v: ReleaseType.values()) {
             if (v.parsable == str) {
+                echo("releaseType ${v} (${v.getClass().getSimpleName()}")
                 return v
             }
         }
