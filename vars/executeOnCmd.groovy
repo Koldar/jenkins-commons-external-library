@@ -12,7 +12,8 @@ import java.nio.file.Paths
  */
 def call(String script, List<List<String>> environmentVariables, String label) {
     def actualCmd = ""
-    echo "environmentVariables = ${environmentVariables}"
+    echo "hello!"
+    //echo "environmentVariables = ${environmentVariables}"
     // for (List<String> v: environmentVariables) {
     //     echo "Setting ${v.get(0)} to ${v.get(1)}"
     //     actualCmd = actualCmd + "SET ${v.get(0)}=${v.get(1)};"
