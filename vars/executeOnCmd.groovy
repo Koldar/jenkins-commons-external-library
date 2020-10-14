@@ -10,9 +10,9 @@ import java.nio.file.Paths
  * scan the iterable and filters out duplicat elements
  *
  */
-def call(String script, Iterable<Iterable<String,String>> environmentVariables, String label) {
+def call(String script, Iterable<List<String,String>> environmentVariables, String label) {
     def actualCmd = ""
-    for (def v: environmentVariables) {
+    for (List<String,String> v: environmentVariables) {
         echo "Setting ${v[0]} to ${v[1]}"
         actualCmd = actualCmd + "SET ${v[0]}=${v[1]};"
     }
@@ -23,9 +23,12 @@ def call(String script, Iterable<Iterable<String,String>> environmentVariables, 
         label: label
     )
     echo "Done Executing ${actualCmd}"
-    
 }
 
 def call(final Map data) {
-    call(data.script, data.environmentVariables, data.label)
+    call(
+        data.script, 
+        data.environmentVariables, 
+        data.label
+    )
 }
