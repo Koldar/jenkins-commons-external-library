@@ -8,9 +8,9 @@ import java.nio.file.Paths
 
 /**
  * scan the iterable and filters out duplicat elements
- *
+ * ["JAVA_HOME", JAVA_HOME]
  */
-def call(String script, List<List<String,String>> environmentVariables, String label) {
+def call(String script, String label) {
     def actualCmd = ""
     // for (List<String,String> v: environmentVariables) {
     //     echo "Setting ${v[0]} to ${v[1]}"
@@ -28,7 +28,7 @@ def call(String script, List<List<String,String>> environmentVariables, String l
 def call(final Map data) {
     call(
         data.script, 
-        data.environmentVariables, 
+        //data.environmentVariables, 
         data.label
     )
 }
