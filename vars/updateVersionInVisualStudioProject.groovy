@@ -30,11 +30,13 @@ def call(String visualStudioProjectFileXml, String newVersion, ReleaseType relea
         }
     }
     //save new xml
-    new XmlNodePrinter(new PrintWriter(new FileWriter(visualStudioProjectFileXml))).print(project)
+    def printer = new XmlNodePrinter(new PrintWriter(new FileWriter(visualStudioProjectFileXml)))
+    printer.setPreserveWhitespace(true)
+    printer.print(project)
 
     //ensure the change has been made
     def versionCheck = fetchVersionFromVisualStudio(visualStudioProjectFileXml)
-    echo("When retying to read the project file, we got a version of ${versionCheck}")
+    echo("When retrying to read the project file, we got a version of ${versionCheck}")
     if (versionCheck != newVersion) {
         throw new IllegalArgumentException("version ${newVersion} has not been updated!")
     }
