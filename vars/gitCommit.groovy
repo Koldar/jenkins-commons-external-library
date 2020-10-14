@@ -7,6 +7,6 @@ def call(final Map data) {
 def call(String message, String gitExe = "git") {
     bat(
         script: "${gitExe} commit -m \"${message}\"",
-        label: "commit ${message}"
+        label: "commit \"${message}\""
     )
 }
