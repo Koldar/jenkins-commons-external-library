@@ -15,7 +15,7 @@ def call(String script, Iterable<Iterable<String>> environmentVariables, String 
     for (Iterable<String> v: environmentVariables) {
         def l = v.collect()
         echo "Setting ${v.get(0)} to ${l.get(1)}"
-        actualCmd = actualCmd + "SET ${l.get(0)}=\"${l.get(1)}\";"
+        actualCmd = actualCmd + "\"SET ${l.get(0)}=${l.get(1)}\";"
     }
     actualCmd = actualCmd + script
     echo "Executing ${actualCmd}"
