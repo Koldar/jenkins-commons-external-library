@@ -13,6 +13,7 @@ import java.nio.file.Paths
 def call(String cmd, Iterable<List<String,String>> environmentVariables, String label) {
     def actualCmd = ""
     for (def v: environmentVariables) {
+        echo "Setting ${v[0]} to ${v[1]}"
         actualCmd = actualCmd + "SET ${v[0]}=${v[1]};"
     }
     actualCmd = actualCmd + cmd
