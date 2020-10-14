@@ -8,16 +8,16 @@ enum ReleaseType {
 
     private final String parsable
     private final boolean releaseValue
-    private final String suffix
+    private final String suffixValue
     
 	ReleaseType(String parsable, boolean release, String suffix) {
 		this.parsable = parsable
         this.releaseValue = release
-        this.suffix = suffix
+        this.suffixValue = suffix
 	}
 
     String getSuffix() {
-        return this.suffix
+        return this.suffixValue
     }
 
     boolean isRelease() {
