@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 package com.fibonacci.jenkins.commons
 
 import java.util.Map.Entry;
@@ -99,7 +101,7 @@ class MatrixUtils {
         }
         else {
             for (Entry entry : tasks) {
-                steps.echo "executing ${entry.getKey()}..."
+                echo "executing ${entry.getKey()}..."
                 entry.getValue()
             }
         }
