@@ -24,7 +24,7 @@ class MatrixUtils {
         for(Map combination : combinations) {
             def toAdd = true
             for (Entry rejectedEntry : reject.entrySet()) {
-                if (combination.get(rejectedEntry.key).EqualTo(rejectedEntry.value)) {
+                if (combination.get(rejectedEntry.key).equals(rejectedEntry.value)) {
                     toAdd = false
                     break
                 }
