@@ -1,5 +1,7 @@
 package com.fibonacci.jenkins.commons
 
+import java.util.Map.Entry;
+
 class MatrixUtils {
 
     @NonCPS
