@@ -84,7 +84,7 @@ class MatrixUtils {
             // let's say you have diverse agents among Windows, Mac and Linux all of
             // which have proper labels for their platform and what browsers are
             // available on those agents.
-            String nodeLabel = "node " + String.Join(", ", combination.entrySet())
+            String nodeLabel = "node " + String.join(", ", combination.entrySet())
             tasks[combinationEnv.join(', ')] = { ->
                 node(nodeLabel) {
                     withEnv(combinationEnv) {
