@@ -99,7 +99,7 @@ class MatrixUtils {
         }
         else {
             for (Entry entry : tasks) {
-                echo "executing ${entry.getKey()}..."
+                steps.echo "executing ${entry.getKey()}..."
                 entry.getValue()
             }
         }
