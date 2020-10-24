@@ -19,17 +19,40 @@ class MatrixUtils {
     }
 
     @NonCPS
+    static boolean shouldReject(Map combination, Map reject) {
+        for (Entry rejectedEntry : reject.entrySet()) {
+            def actual = combination.get(rejectedEntry.getKey())
+            def expected = rejectedEntry.getValue()
+            if (actual == null) {
+                return false
+            }
+            if (!actual.equals(expected)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    @NonCPS
+    static boolean shouldSelect(Map combination, Map select) {
+        for (Entry selectedEntry : select.entrySet()) {
+            def actual = combination.get(selectedEntry.getKey())
+            def expected = selectedEntry.getValue()
+            if (actual == null) {
+                return false
+            }
+            if (!actual.equals(expected)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    @NonCPS
     static List rejectCombinations(List combinations, Map reject) {
         List result = []
         for(Map combination : combinations) {
-            def toAdd = true
-            for (Entry rejectedEntry : reject.entrySet()) {
-                if (combination.get(rejectedEntry.getKey()).equals(rejectedEntry.getValue())) {
-                    toAdd = false
-                    break
-                }
-            }
-            if (toAdd) {
+            if (!shouldReject(combination, reject)) {
                 result.add(combination)
             }
         }
@@ -40,14 +63,7 @@ class MatrixUtils {
     static List selectCombinations(List combinations, Map select) {
         List result = []
         for(Map combination : combinations) {
-            def toAdd = true
-            for (Entry selectedEntry : select.entrySet()) {
-                if (!combination.get(selectedEntry.getKey()).equals(selectedEntry.getValue())) {
-                    toAdd = false
-                    break
-                }
-            }
-            if (toAdd) {
+            if (shouldSelect(combination, reject)) {
                 result.add(combination)
             }
         }
