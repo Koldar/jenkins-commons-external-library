@@ -3,5 +3,7 @@
 import com.fibonacci.jenkins.commons.AnsiColors;
 
 def call(String message) {
-    echo AnsiColors.getColorMessage(message, "green")
+    ansiColor("xterm") {
+        echo AnsiColors.getColorMessage(message, "green")
+    }
 }
