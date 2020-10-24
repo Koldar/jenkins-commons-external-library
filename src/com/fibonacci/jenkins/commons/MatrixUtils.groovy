@@ -103,7 +103,7 @@ class MatrixUtils {
         else {
             for (Entry entry : tasks) {
                 result.add(entry.getKey())
-                entry.getValue()
+                entry.getValue().call()
             }
         }
 
