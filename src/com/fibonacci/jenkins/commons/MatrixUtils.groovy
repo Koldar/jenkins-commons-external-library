@@ -83,7 +83,7 @@ class MatrixUtils {
         }
         else {
             for (Entry entry : tasks) {
-                entry.value()
+                entry.getValue()
             }
         }
     }
