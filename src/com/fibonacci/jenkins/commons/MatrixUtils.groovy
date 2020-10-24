@@ -88,25 +88,27 @@ class MatrixUtils {
             // which have proper labels for their platform and what browsers are
             // available on those agents.
             String nodeLabel = "node " + combinationEnv.join(", ")
-            tasks[nodeLabel] = { ->
+            tasks.put(nodeLabel, { ->
                 node {
                     withEnv(combinationEnv) {
                         closure(combination)
                     }
                 }
-            }
+            })
         }
 
-        if (shouldRunParallel) {
-            parallel(tasks)
-        }
-        else {
-            for (Entry entry : tasks) {
-                result.add(entry.getKey())
-                entry.getValue().call()
-            }
-        }
+        return tasks
 
-        return result
+        // if (shouldRunParallel) {
+        //     parallel(tasks)
+        // }
+        // else {
+        //     for (entry in tasks.entrySet()) {
+        //         result.add(entry.getKey())
+        //         entry.getValue()()
+        //     }
+        // }
+
+        // return result
     }
 }
