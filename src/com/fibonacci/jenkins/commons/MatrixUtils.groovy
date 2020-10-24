@@ -98,10 +98,10 @@ class MatrixUtils {
             parallel(tasks)
         }
         else {
-            tasks
-            // for (Entry entry : tasks) {
-            //     entry.getValue()
-            // }
+            for (Entry entry : tasks) {
+                blueEcho "executing ${entry.getKey()}..."
+                entry.getValue()
+            }
         }
     }
 }
