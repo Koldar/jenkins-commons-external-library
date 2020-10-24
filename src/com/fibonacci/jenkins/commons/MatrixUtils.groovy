@@ -19,8 +19,8 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static boolean shouldReject(Map combination, Map reject) {
-        for (Entry rejectedEntry : reject.entrySet()) {
+    static boolean shouldReject(Map combination, Map rejectMap) {
+        for (Entry rejectedEntry : rejectMap.entrySet()) {
             def actual = combination.get(rejectedEntry.getKey())
             def expected = rejectedEntry.getValue()
             if (actual == null) {
@@ -34,8 +34,8 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static boolean shouldSelect(Map combination, Map select) {
-        for (Entry selectedEntry : select.entrySet()) {
+    static boolean shouldSelect(Map combination, Map selectMap) {
+        for (Entry selectedEntry : selectMap.entrySet()) {
             def actual = combination.get(selectedEntry.getKey())
             def expected = selectedEntry.getValue()
             if (actual == null) {
@@ -49,10 +49,10 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static List rejectCombinations(List combinations, Map reject) {
+    static List rejectCombinations(List combinations, Map rejectMap) {
         List result = []
         for(Map combination : combinations) {
-            if (!shouldReject(combination, reject)) {
+            if (!shouldReject(combination, rejectMap)) {
                 result.add(combination)
             }
         }
@@ -60,10 +60,10 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static List selectCombinations(List combinations, Map select) {
+    static List selectCombinations(List combinations, Map selectMap) {
         List result = []
         for(Map combination : combinations) {
-            if (shouldSelect(combination, reject)) {
+            if (shouldSelect(combination, selectMap)) {
                 result.add(combination)
             }
         }
