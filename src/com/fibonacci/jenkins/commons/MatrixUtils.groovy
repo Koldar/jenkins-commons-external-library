@@ -19,9 +19,9 @@ class MatrixUtils {
     @NonCPS
     static List rejectCombinations(List combinations, Map reject) {
         List result = []
-        for(combination : combinations) {
+        for(Map combination : combinations) {
             def toAdd = true
-            for (rejectedEntry : reject.entrySet()) {
+            for (Entry rejectedEntry : reject.entrySet()) {
                 if (combination.get(rejectedEntry.key).EqualTo(rejectedEntry.value)) {
                     toAdd = false
                     break
