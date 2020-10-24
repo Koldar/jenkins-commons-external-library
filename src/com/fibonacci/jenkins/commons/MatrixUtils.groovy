@@ -101,7 +101,7 @@ class MatrixUtils {
         }
         else {
             for (Entry entry : tasks) {
-                entry.getValue()
+                entry.getValue()()
             }
         }
     }
