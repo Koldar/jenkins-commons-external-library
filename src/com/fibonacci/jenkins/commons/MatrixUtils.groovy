@@ -3,7 +3,7 @@ package com.fibonacci.jenkins.commons
 class MatrixUtils {
 
     @NonCPS
-    static List getMatrixAxes(Map matrix_axes) {
+    static List getMatrixCombinations(Map matrix_axes) {
         List axes = []
         matrix_axes.each { axis, values ->
             List axisList = []
@@ -14,5 +14,23 @@ class MatrixUtils {
         }
         // calculate cartesian product
         axes.combinations()*.sum()
+    }
+
+    @NonCPS
+    static List rejectCombinations(List combinations, Map reject) {
+        List result = []
+        for(combination : combinations) {
+            def toAdd = true
+            for (rejectedEntry : reject.entrySet()) {
+                if (combination.get(rejectedEntry.key).EqualTo(rejectedEntry.value)) {
+                    toAdd = false
+                    break
+                }
+            }
+            if (toAdd) {
+                result.add(combination)
+            }
+        }
+        return result
     }
 }
