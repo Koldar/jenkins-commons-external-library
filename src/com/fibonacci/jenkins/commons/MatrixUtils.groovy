@@ -37,6 +37,24 @@ class MatrixUtils {
     }
 
     @NonCPS
+    static List selectCombinations(List combinations, Map select) {
+        List result = []
+        for(Map combination : combinations) {
+            def toAdd = true
+            for (Entry selectedEntry : select.entrySet()) {
+                if (!combination.get(selectedEntry.key).equals(selectedEntry.value)) {
+                    toAdd = false
+                    break
+                }
+            }
+            if (toAdd) {
+                result.add(combination)
+            }
+        }
+        return result
+    }
+
+    @NonCPS
     static runCombinations(List combinations, boolean shouldRunParallel, Closure closure) {
         Map tasks = [failFast: false]
 
