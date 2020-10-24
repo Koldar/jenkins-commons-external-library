@@ -84,9 +84,7 @@ class MatrixUtils {
             // let's say you have diverse agents among Windows, Mac and Linux all of
             // which have proper labels for their platform and what browsers are
             // available on those agents.
-            String nodeLabel = "node " + String.join(", ", combination.entrySet().collect {
-                "${it.getKey()}=${it.getValue()}"
-            })
+            String nodeLabel = "node " + combinationEnv.join(", ")
             tasks[combinationEnv.join(', ')] = { ->
                 node(nodeLabel) {
                     withEnv(combinationEnv) {
@@ -100,9 +98,10 @@ class MatrixUtils {
             parallel(tasks)
         }
         else {
-            for (Entry entry : tasks) {
-                entry.getValue()()
-            }
+            tasks
+            // for (Entry entry : tasks) {
+            //     entry.getValue()
+            // }
         }
     }
 }
