@@ -74,6 +74,7 @@ class MatrixUtils {
 
     @NonCPS
     static runCombinations(List combinations, boolean shouldRunParallel, Closure closure) {
+        List result = []
         Map tasks = new HashMap()
 
         for(int i = 0; i < combinations.size(); i++) {
@@ -101,9 +102,11 @@ class MatrixUtils {
         }
         else {
             for (Entry entry : tasks) {
-                echo "executing ${entry.getKey()}..."
+                result.add(entry.getKey())
                 entry.getValue()
             }
         }
+
+        return result
     }
 }
