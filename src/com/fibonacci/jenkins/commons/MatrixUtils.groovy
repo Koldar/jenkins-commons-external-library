@@ -35,4 +35,38 @@ class MatrixUtils {
         }
         return result
     }
+
+    @NonCPS
+    static runCombinations(List combinations, boolean shouldRunParallel, Closure closure) {
+        Map tasks = [failFast: false]
+
+        for(int i = 0; i < combinations.size(); i++) {
+            // convert the Axis into valid values for withEnv step
+            Map combination = new HashMap(combinations[i])
+            combination.put("COMBINATION_ID", i)
+            List combinationEnv = combination.collect { k, v ->
+                "${k}=${v}"
+            }
+            // let's say you have diverse agents among Windows, Mac and Linux all of
+            // which have proper labels for their platform and what browsers are
+            // available on those agents.
+            String nodeLabel = "node ${String.Join(', ', combination)}"
+            tasks[combinationEnv.join(', ')] = { ->
+                node(nodeLabel) {
+                    withEnv(combinationEnv) {
+                        closure(combination)
+                    }
+                }
+            }
+        }
+
+        if (shouldRunParallel) {
+            parallel(tasks)
+        }
+        else {
+            for (Entry entry : tasks) {
+                entry.value()
+            }
+        }
+    }
 }
