@@ -3,7 +3,7 @@ package com.fibonacci.jenkins.commons
 class MatrixUtils {
 
     @NonCPS
-    public static List getMatrixAxes(Map matrix_axes) {
+    static List getMatrixAxes(Map matrix_axes) {
         List axes = []
         matrix_axes.each { axis, values ->
             List axisList = []
