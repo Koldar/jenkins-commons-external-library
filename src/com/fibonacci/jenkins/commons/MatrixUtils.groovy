@@ -88,8 +88,8 @@ class MatrixUtils {
             // which have proper labels for their platform and what browsers are
             // available on those agents.
             String nodeLabel = "node " + combinationEnv.join(", ")
-            tasks[combinationEnv.join(', ')] = { ->
-                node(nodeLabel) {
+            tasks[nodeLabel] = { ->
+                node {
                     withEnv(combinationEnv) {
                         closure(combination)
                     }
@@ -103,7 +103,7 @@ class MatrixUtils {
         else {
             for (Entry entry : tasks) {
                 result.add(entry.getKey())
-                entry.getValue()()
+                entry.getValue()
             }
         }
 
