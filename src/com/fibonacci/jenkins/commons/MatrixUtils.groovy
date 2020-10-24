@@ -72,7 +72,7 @@ class MatrixUtils {
 
     @NonCPS
     static runCombinations(List combinations, boolean shouldRunParallel, Closure closure) {
-        Map tasks = []
+        Map tasks = new HashMap()
 
         for(int i = 0; i < combinations.size(); i++) {
             // convert the Axis into valid values for withEnv step
