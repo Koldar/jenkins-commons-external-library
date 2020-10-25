@@ -73,7 +73,7 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static runCombinations(List combinations, boolean shouldRunParallel, Closure f) {
+    static runCombinations(String name, List combinations, boolean shouldRunParallel, Closure f) {
         List result = []
         Map tasks = new HashMap()
 
@@ -90,22 +90,19 @@ class MatrixUtils {
             String nodeLabel = "node " + combinationEnv.join(", ")
             tasks.put(nodeLabel, { ->
                 f(combination, combinationEnv)
-                //f(combination, combinationEnv)
             })
         }
 
+        if (shouldRunParallel) {
+            parallel(tasks)
+        }
+        else {
+            for (entry in tasks.entrySet()) {
+                result.add(entry.getKey())
+                entry.getValue()()
+            }
+        }
+
         return tasks
-
-        // if (shouldRunParallel) {
-        //     parallel(tasks)
-        // }
-        // else {
-        //     for (entry in tasks.entrySet()) {
-        //         result.add(entry.getKey())
-        //         entry.getValue()()
-        //     }
-        // }
-
-        // return result
     }
 }
