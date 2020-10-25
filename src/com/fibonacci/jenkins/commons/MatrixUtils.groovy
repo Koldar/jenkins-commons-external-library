@@ -94,12 +94,16 @@ class MatrixUtils {
         }
 
         if (shouldRunParallel) {
-            parallel(tasks)
+            stage("matrix parallel ${name}") {
+                parallel(tasks)
+            }
         }
         else {
             for (entry in tasks.entrySet()) {
                 result.add(entry.getKey())
-                entry.getValue()()
+                stage("matrix sequential ${name} ${entry.getKey()}") {
+                    entry.getValue()()
+                }
             }
         }
 
