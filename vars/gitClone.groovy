@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 def call(final Map data) {
-    call(data.remoteurl, data.branch, data.gitExe)
+    call(data.remoteUrl, data.branch, data.gitExe)
 }
 
 def call(String remoteUrl, String branch, String gitExe = "git") {
