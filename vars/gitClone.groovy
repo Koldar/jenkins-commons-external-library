@@ -13,9 +13,9 @@ def call(String remoteUrl, String branch, boolean removeIfPresent = true, String
     def url = Paths.get(new URL(remoteUrl).getFile()).getFileName().toString()
     url = url.substring(0, url.lastIndexOf('.'))
     blueEcho "remove folder ${url}"
-    // fileOperations {
-    //     folderDeleteOperation(url.toString())
-    // }
+    fileOperations {
+        folderDeleteOperation(url)
+    }
     bat(
         script: "${gitExe} clone --single-branch --branch ${branch} ${remoteUrl}",
         label: "git clone ${branch} from ${remoteUrl}"
