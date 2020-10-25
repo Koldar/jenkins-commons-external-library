@@ -73,7 +73,7 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static runCombinations(List combinations, boolean shouldRunParallel) {
+    static runCombinations(List combinations, boolean shouldRunParallel, Closure f) {
         List result = []
         Map tasks = new HashMap()
 
@@ -88,16 +88,7 @@ class MatrixUtils {
             // which have proper labels for their platform and what browsers are
             // available on those agents.
             String nodeLabel = "node " + combinationEnv.join(", ")
-            tasks.put(nodeLabel, { ->
-                node {
-                    withEnv(combinationEnv) {
-                        // closure(combination)
-                        stage("inner") {
-                            blueEcho "blue echo inner"
-                        }
-                    }
-                }
-            })
+            tasks.put(nodeLabel, f)
         }
 
         return tasks
