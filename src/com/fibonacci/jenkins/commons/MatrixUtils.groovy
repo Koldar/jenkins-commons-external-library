@@ -89,7 +89,9 @@ class MatrixUtils {
             // available on those agents.
             String nodeLabel = "node " + combinationEnv.join(", ")
             tasks.put(nodeLabel, { ->
-                f(combination, combinationEnv)
+                node {
+                    f(combination, combinationEnv)
+                }
             })
         }
 
