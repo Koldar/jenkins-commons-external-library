@@ -73,7 +73,7 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static runCombinations(String name, List combinations, boolean shouldRunParallel, Closure f) {
+    static runCombinations(List combinations, Closure f) {
         List result = []
         Map tasks = new HashMap()
 
@@ -91,20 +91,6 @@ class MatrixUtils {
             tasks.put(nodeLabel, { ->
                 f(combination, combinationEnv)
             })
-        }
-
-        if (shouldRunParallel) {
-            stage("matrix parallel ${name}") {
-                parallel(tasks)
-            }
-        }
-        else {
-            for (entry in tasks.entrySet()) {
-                result.add(entry.getKey())
-                stage("matrix sequential ${name} ${entry.getKey()}") {
-                    entry.getValue()()
-                }
-            }
         }
 
         return tasks
