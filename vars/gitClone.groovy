@@ -3,7 +3,7 @@
 import java.net.URL
 
 def call(final Map data) {
-    call(data.remoteUrl, data.branch, data.gitExe, data.removeIfPresent)
+    call(data.remoteUrl, data.branch, data.removeIfPresent, data.gitExe)
 }
 
 def call(String remoteUrl, String branch, boolean removeIfPresent = true, String gitExe = "git") {
