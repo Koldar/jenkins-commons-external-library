@@ -5,9 +5,10 @@ def call(final Map data) {
 }
 
 def call(String remoteUrl, String branch, bool removeIfPresent = true, String gitExe = "git") {
-    blueEcho "remove folder ${new Url(remoteUrl)}"
+    def url = new Url(remoteUrl)
+    blueEcho "remove folder ${url}"
     fileOperations {
-        folderDeleteOperation(folderPath: )
+        folderDeleteOperation(folderPath: url.toString())
     }
     bat(
         script: "${gitExe} clone --single-branch --branch ${branch} ${remoteUrl}",
