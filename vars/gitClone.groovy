@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 
 import java.net.URL
+import java.nio.file.Paths
+import java.nio.file.Path
 
 def call(final Map data) {
     call(data.remoteUrl, data.branch, data.removeIfPresent, data.gitExe)
