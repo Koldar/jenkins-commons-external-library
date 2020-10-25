@@ -18,7 +18,7 @@ import com.fibonacci.jenkins.commons.MatrixUtils
  */
 def call(List combinations, boolean shouldRunParallel, Closure f) {
 
-    return MatrixUtils.runCombinations(combinations, shouldRunParallel), { Map c, List cenv -> 
+    return MatrixUtils.runCombinations(combinations, shouldRunParallel, { Map c, List cenv -> 
         node {
             withEnv(cenv) {
                 closure(c, cenv)
