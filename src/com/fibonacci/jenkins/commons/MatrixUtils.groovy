@@ -73,7 +73,7 @@ class MatrixUtils {
     }
 
     @NonCPS
-    static runCombinations(List combinations, boolean shouldRunParallel, Closure closure) {
+    static runCombinations(List combinations, boolean shouldRunParallel) {
         List result = []
         Map tasks = new HashMap()
 
