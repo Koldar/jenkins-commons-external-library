@@ -91,6 +91,7 @@ class MatrixUtils {
             tasks.put(nodeLabel, { ->
                 node {
                     withEnv(combinationEnv) {
+                        // closure(combination)
                         stage("inner") {
                             blueEcho "blue echo inner"
                         }
