@@ -6,7 +6,7 @@ import java.util.List
 import java.util.ArrayList
 import java.nio.file.Paths
 import java.util.regex.Pattern
-import package com.fibonacci.jenkins.commons.MatrixUtils
+import com.fibonacci.jenkins.commons.MatrixUtils
 
 /**
  * generate a changelog file
