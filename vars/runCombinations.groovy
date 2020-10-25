@@ -18,13 +18,13 @@ import package com.fibonacci.jenkins.commons.MatrixUtils
  */
 def call(List combinations, boolean shouldRunParallel, Closure f) {
 
-    return MatrixUtils.runCombinations(combinations, shouldRunParallel) {
+    return MatrixUtils.runCombinations(combinations, shouldRunParallel), { Map c, List cenv -> 
         node {
             withEnv(cenv) {
-                closure(combination)
+                closure(c, cenv)
             }
         }
-    }
+    })
 }
 
 def call(final Map data) {
