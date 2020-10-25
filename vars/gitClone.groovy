@@ -20,4 +20,5 @@ def call(String remoteUrl, String branch, boolean removeIfPresent = true, String
         script: "${gitExe} clone --single-branch --branch ${branch} ${remoteUrl}",
         label: "git clone ${branch} from ${remoteUrl}"
     )
+    return url
 }
