@@ -6,7 +6,7 @@ def call(final Map data) {
 
 def call(String remoteUrl, String branch, String gitExe = "git") {
     bat(
-        script: "${gitExe} clone --single-branch --branch ${branch}${remoteUrl}",
+        script: "${gitExe} clone --single-branch --branch ${branch} ${remoteUrl}",
         label: "git clone ${branch} from ${remoteUrl}"
     )
 }
