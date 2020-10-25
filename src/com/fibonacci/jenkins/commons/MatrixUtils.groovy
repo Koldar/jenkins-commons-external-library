@@ -88,7 +88,7 @@ class MatrixUtils {
             // which have proper labels for their platform and what browsers are
             // available on those agents.
             String nodeLabel = "node " + combinationEnv.join(", ")
-            tasks.put(nodeLabel, f(conbination, combinationEnv))
+            tasks.put(nodeLabel, f(combination, combinationEnv))
         }
 
         return tasks
