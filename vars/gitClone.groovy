@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+import java.net.URL
+
 def call(final Map data) {
     call(data.remoteUrl, data.branch, data.gitExe, data.removeIfPresent)
 }
