@@ -11,7 +11,7 @@ import java.nio.file.Paths
  * 
  * 
  */
-def call(Closure body) {
+def call() {
 
     if (currentBuild.currentResult != "SUCCESS") {
         throw new IllegalArgumentException("Build ${currentBuild.displayName} Failed! the result was ${currentBuild.currentResult}.")
@@ -20,5 +20,5 @@ def call(Closure body) {
 }
 
 def call(final Map data) {
-    call(data.steps)
+    call()
 }
