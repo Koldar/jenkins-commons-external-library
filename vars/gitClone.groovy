@@ -10,7 +10,7 @@ def call(final Map data) {
 }
 
 def call(String remoteUrl, String branch, boolean removeIfPresent = true, String gitExe = "git") {
-    def url = Paths.get(new URL(remoteUrl).getFile()).getFileName().toString()
+    def url = Paths.get(new URL(remoteUrl).getFile()).getFileName().toString().substring(0, str.lastIndexOf('.'))
     blueEcho "remove folder ${url}"
     // fileOperations {
     //     folderDeleteOperation(url.toString())
