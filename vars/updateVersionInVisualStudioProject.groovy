@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 import com.fibonacci.jenkins.commons.ReleaseType
-import com.fibonacci.jenkins.commons.VisualStudioProjectVersion
+import com.fibonacci.jenkins.commons.version.VisualStudioProjectVersion
 
 def call(final Map data) {
     return call(data.visualStudioProjectFileXml, data.newVersion, data.releaseType)
