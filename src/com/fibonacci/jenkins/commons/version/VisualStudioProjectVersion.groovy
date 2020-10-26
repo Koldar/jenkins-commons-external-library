@@ -56,7 +56,7 @@ class VisualStudioProjectVersion implements IProjectVersion {
         printer.print(project)
 
         //ensure the change has been made
-        def versionCheck = fetchVersionFromVisualStudio(this.propertiesFile)
+        def versionCheck = this.fetchVersionFromVisualStudio()
         //echo("When retrying to read the project file, we got a version of ${versionCheck}")
         if (versionCheck != newVersion) {
             throw new IllegalArgumentException("version ${newVersion} has not been updated!")
