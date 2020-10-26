@@ -28,7 +28,7 @@ class VisualStudioProjectVersion implements IProjectVersion {
         throw new IllegalArgumentException("could not find property group labeled \"Versions\" in ${visualStudioProjectFileXml}!")
     }
 
-    void updateProjectVersion(String version, ReleaseType releaseType) {
+    void updateProjectVersion(String newVersion, ReleaseType releaseType) {
         def project = new XmlParser().parse(this.propertiesFile)
         def propertyGroups = project.children().findAll {
             //echo("name=${it.name().getLocalPart()}")
