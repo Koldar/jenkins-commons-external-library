@@ -25,7 +25,7 @@ class VisualStudioProjectVersion implements IProjectVersion {
                 return (String)text
             }
         }
-        throw new IllegalArgumentException("could not find property group labeled \"Versions\" in ${visualStudioProjectFileXml}!")
+        throw new IllegalArgumentException("could not find property group labeled \"Versions\" in ${this.propertiesFile}!")
     }
 
     void updateProjectVersion(String newVersion, ReleaseType releaseType) {
@@ -51,12 +51,12 @@ class VisualStudioProjectVersion implements IProjectVersion {
             }
         }
         //save new xml
-        def printer = new XmlNodePrinter(new PrintWriter(new FileWriter(visualStudioProjectFileXml)))
+        def printer = new XmlNodePrinter(new PrintWriter(new FileWriter(this.propertiesFile)))
         printer.setPreserveWhitespace(true)
         printer.print(project)
 
         //ensure the change has been made
-        def versionCheck = fetchVersionFromVisualStudio(visualStudioProjectFileXml)
+        def versionCheck = fetchVersionFromVisualStudio(this.propertiesFile)
         //echo("When retrying to read the project file, we got a version of ${versionCheck}")
         if (versionCheck != newVersion) {
             throw new IllegalArgumentException("version ${newVersion} has not been updated!")
