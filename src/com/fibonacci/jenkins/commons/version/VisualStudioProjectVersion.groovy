@@ -1,5 +1,7 @@
 package com.fibonacci.jenkins.commons.version
 
+import com.fibonacci.jenkins.commons.ReleaseType
+
 class VisualStudioProjectVersion implements IProjectVersion {
 
     private File propertiesFile
