@@ -1,6 +1,6 @@
 package com.fibonacci.jenkins.commons.version
 
-class VisualStudioProjectVersion implements ISystemInterface {
+class VisualStudioProjectVersion implements IProjectVersion {
 
     private File propertiesFile
 
