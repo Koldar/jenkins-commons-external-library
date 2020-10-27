@@ -1,3 +1,5 @@
+package com.fibonacci.jenkins.commons.rest
+
 import java.net.URL
 import groovy.json.JsonSlurper
 
