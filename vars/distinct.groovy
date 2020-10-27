@@ -12,7 +12,7 @@ import java.nio.file.Paths
  */
 def call(Iterable entries) {
     def temporary = new HashSet()
-    def result = new List()
+    def result = new ArrayList()
     for (str in entries) {
         if (temporary.contains(str)) {
             continue
