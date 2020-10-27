@@ -1,5 +1,7 @@
 package com.fibonacci.jenkins.commons.trello
 
+import com.fibonacci.jenkins.commons.rest.RestManager
+
 class TrelloManager {
 
     private String key;
@@ -12,12 +14,43 @@ class TrelloManager {
         this.username = username
     }
 
-    Iterable<String> getBoardIds() {
-        // https://api.trello.com/1/members/me/boards?key=61f4cfe14009ec62b33fd2631e10201b&token=8ff0a650900c884eaac66b4fb223ae6824b7dfa703ee4cdd6385152cd7177d5f
+    Iterable<Object> getBoards() {
+
+        def boards = RestManager.getJson("https://api.trello.com/1/members/me/boards?key=${this.key}&token=${this.token}")
+        return boards
     }
 
-    Iterable<Object> getBoard(String boardId) {
+    Iterable<String> getBoardIds() {
+        def result = new List<String>()
+        for (board : getBoards()) {
+            result.add(board.id)
+        }
+        return result
+        
+    }
 
+    Object getBoard(String boardId) {
+        def board = RestManager.getJson("https://api.trello.com/1/boards/${boardId}?key=${this.key}&token=${token}")
+        return board
+    }
+
+    Iterable<Object> getCardsInBoard(String boardId) {
+        def cards = RestManager.getJson("https://api.trello.com/1/boards/${boardId}/cards?key=${this.key}&token=${this.token}")
+
+        return cards
+    }
+
+    Object getCardInBoard(String boardId, String cardId) {
+        def card = RestManager.getJson("https://api.trello.com/1/boards/${boardId}/cards/${cardId}?key=${this.key}&token=${this.token}")
+        return card
+    }
+
+    String getCardTitleInBoard(String boardId, String cardId) {
+        return getCardInBoard(boardId, cardId).name
+    }
+
+    Iterable<String> getCardLabelsIdInBoard(String boardId, String cardId) {
+        return getCardInBoard(boardId, cardId).idLabels
     }
 
 }

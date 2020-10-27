@@ -10,8 +10,17 @@ import java.nio.file.Paths
  * scan the iterable and filters out duplicat elements
  *
  */
-def call(Iterable entries) {
-    return entries.stream().distinct().collect()
+def call(Iterable<String> entries) {
+    def temporary = new HashSet<String>()
+    def result = new List<String>()
+    for (str : entries) {
+        if (temporary.contains(str)) {
+            continue
+        }
+        result.add(str)
+        temporary.add(str)
+    }
+    return result
 }
 
 def call(final Map data) {
