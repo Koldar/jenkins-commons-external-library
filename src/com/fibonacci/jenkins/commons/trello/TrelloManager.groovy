@@ -22,7 +22,7 @@ class TrelloManager {
 
     Iterable<String> getBoardIds() {
         def result = new List<String>()
-        for (board : getBoards()) {
+        for (board in getBoards()) {
             result.add(board.id)
         }
         return result
