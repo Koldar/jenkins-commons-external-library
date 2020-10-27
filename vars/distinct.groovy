@@ -10,9 +10,9 @@ import java.nio.file.Paths
  * scan the iterable and filters out duplicat elements
  *
  */
-def call(Iterable<String> entries) {
-    def temporary = new HashSet<String>()
-    def result = new List<String>()
+def call(Iterable entries) {
+    def temporary = new HashSet()
+    def result = new List()
     for (str : entries) {
         if (temporary.contains(str)) {
             continue
