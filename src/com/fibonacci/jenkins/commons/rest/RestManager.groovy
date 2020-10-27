@@ -37,7 +37,7 @@ class RestManager {
     }
 
     static Object postJson(String url, Map headers = null) {
-        actualMap = headers != null ? new HashMap(headers) : new HashMap()
+        def actualMap = headers != null ? new HashMap(headers) : new HashMap()
         actualMap.put("Content-Type", "application/json")
         executeREST("POST", url, actualMap)
     }
