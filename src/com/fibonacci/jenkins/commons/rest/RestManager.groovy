@@ -18,7 +18,7 @@ class RestManager {
         def getRC = get.getResponseCode()
 
         if(getRC.equals(200)) {
-            def bodyResponse = get.getInputStream().getText());
+            def bodyResponse = get.getInputStream().getText()
             def jsonSlurper = new JsonSlurper()
             return jsonSlurper.parseText(bodyResponse)
         } else {
