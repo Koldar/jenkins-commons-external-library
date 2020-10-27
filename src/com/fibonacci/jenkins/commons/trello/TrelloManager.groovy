@@ -21,7 +21,7 @@ class TrelloManager {
     }
 
     Iterable<String> getBoardIds() {
-        def result = new List<String>()
+        def result = []
         for (board in getBoards()) {
             result.add(board.id)
         }
