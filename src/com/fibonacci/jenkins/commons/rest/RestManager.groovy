@@ -11,7 +11,7 @@ class RestManager {
         connection.setRequestMethod(restType)
         connection.setDoOutput(true)
         //set headers
-        for (entry : headers.entrySet()) {
+        for (entry in headers.entrySet()) {
             connection.setRequestProperty(entry.getKey(), entry.getValue())
         }
         //get http return code
