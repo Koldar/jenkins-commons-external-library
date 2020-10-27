@@ -15,10 +15,10 @@ class RestManager {
             connection.setRequestProperty(entry.getKey(), entry.getValue())
         }
         //get http return code
-        def getRC = get.getResponseCode()
+        def getRC = connection.getResponseCode()
 
         if(getRC.equals(200)) {
-            def bodyResponse = get.getInputStream().getText()
+            def bodyResponse = connection.getInputStream().getText()
             def jsonSlurper = new JsonSlurper()
             return jsonSlurper.parseText(bodyResponse)
         } else {
@@ -27,7 +27,7 @@ class RestManager {
     }
 
     static Object getJson(String url, Map headers = null) {
-        actualMap = headers != null ? new HashMap(headers) : new HashMap()
+        def actualMap = headers != null ? new HashMap(headers) : new HashMap()
         actualMap.put("Content-Type", "application/json")
         executeREST("GET", url, actualMap)
     }
