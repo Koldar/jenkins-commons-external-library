@@ -27,7 +27,7 @@ def _internalCall(Path source, Path target, IOFileFilter filter) {
 def call(Iterable<String> sources, String target, Iterable<String> filters) {
     def regexes = []
     for (f in filters) {
-        regexes.add(new RegexFileFilter(filter))
+        regexes.add(new RegexFileFilter(f))
     }
     def finalFilter = FileFilterutils.or(regexes)
     
