@@ -22,6 +22,7 @@ def _internalCall(Path source, Path target, IOFileFilter filter) {
         filter,
         true
     )
+    echo "Done copying directory"
 }
 
 @NonCPS
