@@ -14,7 +14,7 @@ def call(Map data) {
 def call(String file) {
     try {
         echo "Deleting folder ${file}"
-        Files.delete(Paths.get(file).toFile())
+        FileUtils.deleteDirectory(Paths.get(file).toFile())
     } catch (IOException ioException) {
         //ignore if the file does not exist
     }
