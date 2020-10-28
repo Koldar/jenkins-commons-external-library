@@ -3,6 +3,6 @@
 import java.nio.file.Paths
 
 @NonCPS
-def call(String... other) {
-    return Paths.get(other).toAbsolutePath().toString()
+def call(String first, String... other) {
+    return Paths.get(first, other).toAbsolutePath().toString()
 }
