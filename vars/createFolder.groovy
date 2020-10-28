@@ -10,7 +10,7 @@ def call(Map data) {
 }
 
 @NonCPS
-def call(Path folder) {
+def call(String folder) {
     echo "Creating folder ${folder}"
-    Files.createDirectories(folder.toFile())
+    Files.createDirectories(Paths.get(folder).toFile())
 }

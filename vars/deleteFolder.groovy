@@ -10,10 +10,10 @@ def call(Map data) {
 }
 
 @NonCPS
-def call(Path folder) {
+def call(String folder) {
     try {
         echo "Deleting folder ${folder}"
-        Files.delete(filePath);
+        Files.delete(Paths.get(filePath).toFile())
     } catch (IOException ioException) {
         //ignore if the file does not exist
     }

@@ -10,7 +10,7 @@ def call(Map data) {
 }
 
 @NonCPS
-def call(Path source, Path target) {
+def call(String source, String target) {
     echo "Coping file ${source} to ${target}"
-    FileUtils.copyFile(source.toFile(), target().toFile())
+    FileUtils.copyFile(Paths.get(source).toFile(), Paths.get(target).toFile())
 }

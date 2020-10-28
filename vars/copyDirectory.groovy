@@ -22,12 +22,12 @@ def internalCall(Path source, Path target, IOFileFilter filter) {
 }
 
 @NonCPS
-def call(Path[] sources, Path target, String[] filters) {
+def call(String[] sources, String target, String[] filters) {
     var regexes = []
     for (f in filters) {
         regexes.add(new RegexFileFilter(filter))
     }
     
     for (s in source)
-    internalCall(s, target, filters)
+    internalCall(Paths.get(s), Paths.get(target), filters)
 }
