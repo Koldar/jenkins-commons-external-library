@@ -13,7 +13,7 @@ def call(Map data) {
 }
 
 @NonCPS
-def internalCall(Path source, Path target, IOFileFilter filter) {
+def _internalCall(Path source, Path target, IOFileFilter filter) {
     echo "Copy Directory ${source} into ${target} using filter ${filter}"
     FileUtils.copyDirectory(
         source.toFile(), 
@@ -24,7 +24,7 @@ def internalCall(Path source, Path target, IOFileFilter filter) {
 }
 
 @NonCPS
-def call(String[] sources, String target, String[] filters) {
+def call(Iterable<String> sources, String target, Iterable<String> filters) {
     def regexes = []
     for (f in filters) {
         regexes.add(new RegexFileFilter(filter))
@@ -32,7 +32,7 @@ def call(String[] sources, String target, String[] filters) {
     def finalFilter = FileFilterutils.or(regexes)
     
     for (s in sources) {
-        internalCall(Paths.get(s), Paths.get(target), finalFilter)
+        _internalCall(Paths.get(s), Paths.get(target), finalFilter)
     }
     
 }
