@@ -1,7 +1,5 @@
 #!/usr/bin/env groovy
 
-@Grab('commons-io:commons-io:2.8')
-import org.apache.commons.io.FileUtils
 import java.nio.file.Paths
 
 @NonCPS

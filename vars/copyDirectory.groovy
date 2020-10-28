@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-@Grab('commons-io:commons-io:2.8')
+@Grab('commons-io:commons-io:2.8.0')
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.RegexFileFilter
 import java.nio.file.Paths
