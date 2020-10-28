@@ -6,7 +6,7 @@ import org.apache.commons.io.filefilter.RegexFileFilter
 import java.nio.file.Paths
 
 def call(Map data) {
-    call(data.source, data.target, data.filter)
+    call(data.sources, data.target, data.filter)
 }
 
 def internalCall(Path source, Path target, IOFileFilter filter) {
@@ -18,7 +18,7 @@ def internalCall(Path source, Path target, IOFileFilter filter) {
     )
 }
 
-def call(Path[] source, Path target, String[] filters) {
+def call(Path[] sources, Path target, String[] filters) {
     var regexes = []
     for (f in filters) {
         regexes.add(new RegexFileFilter(filter))
