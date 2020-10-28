@@ -32,11 +32,12 @@ def call(Iterable<String> sources, String target, Iterable<String> filters) {
         regexes.add(new RegexFileFilter(f))
     }
     def finalFilter = FileFilterUtils.or(regexes.toArray(new IOFileFilter[0]))
+    def targetDirectory = Paths.get(target).toAbsolutePath()
 
     echo "Starting sources for loop"    
     for (s in sources) {
         echo "Handling source \"${s}\""
-        _internalCall(Paths.get(s), Paths.get(target), finalFilter)
+        _internalCall(Paths.get(s), targetDirectory, finalFilter)
     }
     echo "done!"
 }
