@@ -13,4 +13,5 @@ def call(Map data) {
 def call(String folder) {
     echo "Creating folder ${folder}"
     Files.createDirectories(Paths.get(folder).toFile())
+    return folder
 }
