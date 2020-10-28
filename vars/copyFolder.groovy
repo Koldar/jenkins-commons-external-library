@@ -30,7 +30,7 @@ def call(Iterable<String> sources, String target, Iterable<String> filters) {
     for (f in filters) {
         regexes.add(new RegexFileFilter(f))
     }
-    def finalFilter = FileFilterUtils.or(regexes)
+    def finalFilter = FileFilterUtils.or(regexes.toArray())
     
     for (s in sources) {
         _internalCall(Paths.get(s), Paths.get(target), finalFilter)
