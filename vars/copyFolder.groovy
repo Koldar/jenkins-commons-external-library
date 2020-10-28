@@ -2,6 +2,7 @@
 
 @Grab('commons-io:commons-io:2.8.0')
 import org.apache.commons.io.FileUtils
+import org.apache.commons.io.filefilter.IOFileFilter
 import org.apache.commons.io.filefilter.RegexFileFilter
 import java.nio.file.Paths
 import java.nio.file.Path
