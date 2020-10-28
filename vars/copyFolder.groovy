@@ -4,6 +4,7 @@
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.IOFileFilter
 import org.apache.commons.io.filefilter.RegexFileFilter
+import org.apache.commons.io.filefilter.FileFilterUtils
 import java.nio.file.Paths
 import java.nio.file.Path
 
