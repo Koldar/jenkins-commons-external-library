@@ -11,7 +11,7 @@ def call(Map data) {
 
 @NonCPS
 def call(String folder) {
-    echo "Creating folder ${folder}"
+    //echo "Creating folder ${folder}"
     def useless = Files.createDirectories(Paths.get(folder).toFile())
     return folder
 }
