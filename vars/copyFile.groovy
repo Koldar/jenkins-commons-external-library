@@ -12,7 +12,7 @@ def call(Map data) {
 @NonCPS
 def call(String source, String target) {
     def s = Paths.get(source)
-    def t = Paths.get(target)
+    def t = Paths.get(target, s.getFileName())
     echo "Coping file ${s} to ${t}"
     FileUtils.copyFile(s.toFile(), t.toFile())
 }
