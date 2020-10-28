@@ -7,11 +7,11 @@ import java.nio.file.Files
 
 @NonCPS
 def call(Map data) {
-    call(data.folder)
+    call(data.file)
 }
 
 @NonCPS
-def call(String folder) {
+def call(String file) {
     try {
         echo "Deleting folder ${folder}"
         Files.delete(Paths.get(filePath).toFile())
