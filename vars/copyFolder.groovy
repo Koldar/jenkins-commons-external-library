@@ -9,7 +9,7 @@ import java.nio.file.Path
 
 @NonCPS
 def call(Map data) {
-    call(data.sources, data.target, data.filter)
+    call(data.sources, data.target, data.filters)
 }
 
 @NonCPS
@@ -18,18 +18,21 @@ def internalCall(Path source, Path target, IOFileFilter filter) {
     FileUtils.copyDirectory(
         source.toFile(), 
         target().toFile(),
-        FileFilterutils.or(regexes),
+        filter,
         true
     )
 }
 
 @NonCPS
 def call(String[] sources, String target, String[] filters) {
-    var regexes = []
+    def regexes = []
     for (f in filters) {
         regexes.add(new RegexFileFilter(filter))
     }
+    def finalFilter = FileFilterutils.or(regexes)
     
-    for (s in source)
-    internalCall(Paths.get(s), Paths.get(target), filters)
+    for (s in source) {
+        internalCall(Paths.get(s), Paths.get(target), finalFilter)
+    }
+    
 }
