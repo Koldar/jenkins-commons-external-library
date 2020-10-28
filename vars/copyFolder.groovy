@@ -33,6 +33,7 @@ def call(Iterable<String> sources, String target, Iterable<String> filters) {
     def finalFilter = FileFilterUtils.or(regexes.toArray(new IOFileFilter[0]))
     
     for (s in sources) {
+        echo "Handling source \"${s}\""
         _internalCall(Paths.get(s), Paths.get(target), finalFilter)
     }
     
