@@ -36,5 +36,5 @@ def call(Iterable<String> sources, String target, Iterable<String> filters) {
         echo "Handling source \"${s}\""
         _internalCall(Paths.get(s), Paths.get(target), finalFilter)
     }
-    
+    echo "done!"
 }
