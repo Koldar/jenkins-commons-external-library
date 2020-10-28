@@ -1,0 +1,17 @@
+#!/usr/bin/env groovy
+
+@Grab('commons-io:commons-io:2.8')
+import org.apache.commons.io.FileUtils
+import java.nio.file.Paths
+
+def call(Map data) {
+    call(data.folder)
+}
+
+def call(Path folder) {
+    try {
+        Files.delete(filePath);
+    } catch (IOException ioException) {
+        //ignore if the file does not exist
+    }
+}
