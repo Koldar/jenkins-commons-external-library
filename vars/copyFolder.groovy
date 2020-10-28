@@ -4,6 +4,7 @@
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.RegexFileFilter
 import java.nio.file.Paths
+import java.nio.file.Path
 
 @NonCPS
 def call(Map data) {
