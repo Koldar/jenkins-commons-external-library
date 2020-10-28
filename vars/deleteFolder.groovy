@@ -10,6 +10,7 @@ def call(Map data) {
 
 def call(Path folder) {
     try {
+        echo "Deleting folder ${folder}"
         Files.delete(filePath);
     } catch (IOException ioException) {
         //ignore if the file does not exist

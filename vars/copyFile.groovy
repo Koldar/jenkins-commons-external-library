@@ -9,5 +9,6 @@ def call(Map data) {
 }
 
 def call(Path source, Path target) {
+    echo "Coping file ${source} to ${target}"
     FileUtils.copyFile(source.toFile(), target().toFile())
 }

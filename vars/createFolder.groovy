@@ -9,5 +9,6 @@ def call(Map data) {
 }
 
 def call(Path folder) {
+    echo "Creating folder ${folder}"
     Files.createDirectories(folder)
 }

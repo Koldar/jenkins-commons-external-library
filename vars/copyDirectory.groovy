@@ -10,6 +10,7 @@ def call(Map data) {
 }
 
 def internalCall(Path source, Path target, IOFileFilter filter) {
+    echo "Copy Directory ${source} into ${target} using filter ${filter}"
     FileUtils.copyDirectory(
         source.toFile(), 
         target().toFile(),
