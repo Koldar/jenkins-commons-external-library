@@ -4,10 +4,12 @@
 import org.apache.commons.io.FileUtils
 import java.nio.file.Paths
 
+@NonCPS
 def call(Map data) {
     call(data.folder)
 }
 
+@NonCPS
 def call(Path folder) {
     try {
         echo "Deleting folder ${folder}"

@@ -5,10 +5,12 @@ import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.RegexFileFilter
 import java.nio.file.Paths
 
+@NonCPS
 def call(Map data) {
     call(data.sources, data.target, data.filter)
 }
 
+@NonCPS
 def internalCall(Path source, Path target, IOFileFilter filter) {
     echo "Copy Directory ${source} into ${target} using filter ${filter}"
     FileUtils.copyDirectory(
@@ -19,6 +21,7 @@ def internalCall(Path source, Path target, IOFileFilter filter) {
     )
 }
 
+@NonCPS
 def call(Path[] sources, Path target, String[] filters) {
     var regexes = []
     for (f in filters) {
