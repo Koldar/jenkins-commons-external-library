@@ -31,7 +31,7 @@ def call(String[] sources, String target, String[] filters) {
     }
     def finalFilter = FileFilterutils.or(regexes)
     
-    for (s in source) {
+    for (s in sources) {
         internalCall(Paths.get(s), Paths.get(target), finalFilter)
     }
     
